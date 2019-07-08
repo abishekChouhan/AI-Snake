@@ -1,0 +1,9 @@
+numpy
+pyscreenshot
+opencv-python
+matplotlib
+seaborn
+pandas
+selenium
+Keras
+tensorflow

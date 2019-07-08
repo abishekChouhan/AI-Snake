@@ -34,11 +34,12 @@
 		        return Init.instance_;
 		    }
 		    Init.instance_ = this;
-		    this.playing = true;
+		    this.playing = false;
 		    this.crashed = false;
-		    this.speed = 360;
-		    this.width = 12;
-		    this.height = 12;
+		    this.just_eaten = false;
+		    this.speed = 400;
+		    this.width = 8;
+		    this.height = 8;
 		    this.time = 0;
 		    console.log(speed)
 		    var ctx;
@@ -53,7 +54,9 @@
 
 		    var X = 2;
 		    var Y = Math.round(this.height/2);
-		    console.log(Y)
+		    //console.log(Y)
+			hx = X;
+			hy = Y;
 		    var direction = 2;
 
 		    var interval = 0;
@@ -91,8 +94,11 @@
 		        map[x][y] = 1;
 		        ctx.strokeStyle = "black";
 		        ctx.strokeRect(x * 10 + 1, y * 10 + 1, 10 - 2, 10 - 2);
+				return [x,y]
 		    }
-		    placeFood();
+		    var l_xy = placeFood();
+			fx = l_xy[0];
+			fy = l_xy[1];
 
 		    this.playing = false;
 		    this.crashed = false;
@@ -121,9 +127,12 @@
 		            2 !== map[X][Y]) {
 
 		            if (1 === map[X][Y]) {
+						this.just_eaten = true;
 		                this.score += 1
 		                // box = true;
-		                placeFood();
+		                var l_xy = placeFood();
+						fx = l_xy[0];
+						fy = l_xy[1];
 		                elements++;
 		            }
 		            // if (box){
@@ -141,7 +150,11 @@
 
 		            X += xV[direction];
 		            Y += yV[direction];
-
+					hx = X;
+					hy = Y;
+					distance = Math.sqrt((hx-fx)*(hx-fx) + (hy-fy)*(hy-fy))
+					this.distance = distance
+					//console.log(distance)
 		            if (elements < queue.length) {
 		                dir = queue.pop()
 
@@ -162,7 +175,8 @@
 		            map = [];
 
 		            X = 2;
-		            Y = 7;
+			    	Y = Math.round(this.height/2);
+		    	    //console.log(Y)
 
 		            direction = 2;
 
@@ -172,7 +186,9 @@
 		                map[i] = [];
 		            }
 		            window.clearInterval(interval);
-		            placeFood();
+		            l_xy = placeFood();
+					fx = l_xy[0];
+					fy = l_xy[1];
 		            // } else {
 		            // 	window.clearInterval(interval);
 		            // 	window.location = "/projects/";
@@ -228,16 +244,25 @@
 		            document.getElementById("seconds").innerHTML = seconds.toFixed(2);
 		        };
 		        this.time = seconds;
-		    }, 100);
+				// if (this.just_eaten){
+				// 	this.just_eaten = false;
+				// };
+				
+			}, 100);
+			// if (this.crashed){
+			// 	setInterval(function(){
+			// 		this.crashed = false;
+			// 	}, 2);
+			// };
 
 
 		}		
 	</script>
 </head>
 <body onload="Init()">
-	<div style="position: relative; width: 150px;">
-		<h2 id="score" style="display: block; float: left"></h2>
-		<h2 id="seconds" style="display: block; float: right">0</h2>
+	<div style="position: relative; width: 100px;">
+		<h4 id="score" style="display: block; float: left"></h4>
+		<h4 id="seconds" style="display: block; float: right">0</h4>
 	</div>
 </body>
 </html>
