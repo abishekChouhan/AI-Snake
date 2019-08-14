@@ -29,3 +29,38 @@ pip3 install -r requirements.txt
   sudo pip3 install pyscreenshot
   ```
 * Open ``Deep_Reinforcement_Learning_Snake.py``, Comment out line 8 and 100 and un-comment line 9 and 101
+
+### Configuration:
+* You can open ``Deep_Reinforcement_Learning_Snake.py`` and change the following parameters:
+  ```
+  img_rows, img_cols = 64,64
+  SPEED = 360
+  WIDTH = 8
+  HEIGHT = 8
+  ACTIONS = 4 
+  GAMMA = 0.99 
+  OBSERVATION = 65.
+  EXPLORE = 70
+  FINAL_EPSILON = 0.1
+  INITIAL_EPSILON = 1
+  REPLAY_MEMORY = 50000
+  BATCH = 64
+  FRAME_PER_ACTION = 1
+  LEARNING_RATE = 1e-4
+  img_channels = 4
+  ```
+
+### Start Training:
+```bash
+python3 Deep_Reinforcement_Learning_Snake.py
+```
+### Checking the scores:
+* File ```data/scores_df.csv``` contains scores of each game played by our model.
+* File ```data/actions_df.csv``` contains action at each step taken by the model.
+* File ```data/loss_df.csv``` contains loss at each step taken by the model.
+* File ```data/time_df.csv``` contains seconds played of each game.
+
+### Reference:
+[1]https://github.com/yenchenlin/DeepLearningFlappyBird
+
+[2]https://medium.com/acing-ai/how-i-build-an-ai-to-play-dino-run-e37f37bdf153
