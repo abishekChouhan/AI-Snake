@@ -1,6 +1,8 @@
 # AI-Snake
 Reinforcement Learning Snake Game
 
+![alt text](https://github.com/abishekChouhan/AI-Snake/blob/master/images/snake-input.png)
+
 ### Pre-Requirements:
 * python3
 * Google Chrome
@@ -29,6 +31,9 @@ pip3 install -r requirements.txt
   sudo pip3 install pyscreenshot
   ```
 * Open ``Deep_Reinforcement_Learning_Snake.py``, Comment out line 8 and 100 and un-comment line 9 and 101
+
+### CNN Network Architecture
+![alt text](https://github.com/abishekChouhan/AI-Snake/blob/master/images/network.png)
 
 ### Configuration:
 * You can open ``Deep_Reinforcement_Learning_Snake.py`` and change the following parameters:
