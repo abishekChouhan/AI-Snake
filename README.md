@@ -66,6 +66,6 @@ python3 Deep_Reinforcement_Learning_Snake.py
 * File ```data/time_df.csv``` contains seconds played of each game.
 
 ### Reference:
-[1]https://github.com/yenchenlin/DeepLearningFlappyBird
+https://github.com/yenchenlin/DeepLearningFlappyBird
 
-[2]https://medium.com/acing-ai/how-i-build-an-ai-to-play-dino-run-e37f37bdf153
+https://medium.com/acing-ai/how-i-build-an-ai-to-play-dino-run-e37f37bdf153
